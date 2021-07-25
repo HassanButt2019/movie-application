@@ -9,7 +9,7 @@ class MovieDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Movie Detail")),
+        title: Center(child: Text(model.title)),
         actions: [],
       ),
       body: Scrollbar(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:movie_app/splash.dart';
 import 'package:movie_app/src/screens/home_screen.dart';
 
 void main() {
@@ -19,8 +20,9 @@ class _MovieApplicationState extends State<MovieApplication> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home:Scaffold(
-        body: HomeScreen(),
+        body:SplashScreen() ,
       ),
     );
   }

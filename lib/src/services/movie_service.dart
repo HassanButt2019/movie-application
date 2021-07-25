@@ -18,11 +18,18 @@ class MovieService{
     return data;
   }
 
-  Future<List<MovieModel>> fetchMovies() async{
+  Future<List<MovieModel>> fetchMovies(String query) async{
     print("HELLO in fetch movies");
     var response = await http.get(Uri.parse(baseUrl));
     if(response.statusCode == 200){
-      return parseData(response.body);
+      if(query.isNotEmpty)
+      {
+      return parseData(response.body).where((movies) =>  movies.title.toLowerCase().contains(query.toLowerCase())).toList();
+
+      }else
+      {
+        return parseData(response.body);
+      }
     }
   }
 }
