@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:movie_app/src/models/movie_model.dart';
-import 'package:movie_app/src/repositories/movie_repository.dart';
-import 'package:movie_app/src/screens/components/movie_overview.dart';
+import 'package:movie_app/src/models/hotel_model.dart';
+import 'package:movie_app/src/repositories/hotel_repository.dart';
 import 'package:search_widget/search_widget.dart';
+
+import 'components/hotel_overview.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -14,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 String query = '';
 class _HomeScreenState extends State<HomeScreen> {
-TextEditingController movieTitle = new TextEditingController();
+TextEditingController hotelTitle = new TextEditingController();
   
 
 
@@ -23,9 +24,9 @@ TextEditingController movieTitle = new TextEditingController();
   void initState() {
     super.initState();
     //movieTitle.text = context.read(nameFilterProvider).state.toString();
-    movieTitle.addListener(() {
+    hotelTitle.addListener(() {
      setState(() {
-       query = movieTitle.text.toString();
+       query = hotelTitle.text.toString();
      });
     });
   }
@@ -42,7 +43,7 @@ TextEditingController movieTitle = new TextEditingController();
       color: Colors.blue,
           child: TextFormField(
         // controller: _password,
-        controller: movieTitle,
+        controller: hotelTitle,
         keyboardType: TextInputType.emailAddress,
         autofocus: false,
         
@@ -64,7 +65,7 @@ TextEditingController movieTitle = new TextEditingController();
         ),
       ),
     )
-          :Text("List Of Movies"),
+          :Text("List Of Hotels"),
           actions: [
             IconButton(
                 onPressed: () {
@@ -85,15 +86,14 @@ search = true;
           ],
         ),
         body: Consumer(builder: (context, watch, child) {
-          AsyncValue<List<MovieModel>> movies = watch(DataStateFuture);
-          return movies.when(
-            data: (movie) {
-           //  filtermovies = movie.where((movies) => movies.title.toLowerCase().contains(movieTitle.text.toLowerCase())).toList();
+          AsyncValue<List<HotelModel>> hotels = watch(DataStateFuture);
+          return hotels.when(
+            data: (hotel) {
               return ListView.builder(
-                  itemCount:movie.length,
+                  itemCount:hotel.length,
                   itemBuilder: (BuildContext context, index) {
-                    return MovieOverview(
-                      model: movie[index],
+                    return HotelOverview(
+                      model: hotel[index],
                     );
                   });
             },

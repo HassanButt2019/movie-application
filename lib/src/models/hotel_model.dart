@@ -1,4 +1,6 @@
-class MovieModel{
+import 'package:flutter/material.dart';
+
+class HotelModel{
   int id;
   String title;
   String imgurl;
@@ -7,9 +9,9 @@ class MovieModel{
 
 
 
-  MovieModel.fromJson(Map<String,dynamic> json)
+  HotelModel.fromJson(Map<String,dynamic> json)
   {
-    print("HELLO in movie model");
+    debugPrint("HELLO THIS IS NEW"+json.toString());
     id = json['id'];
     title = json['title'];
     imgurl = json['poster_path'];

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/src/models/movie_model.dart';
+import 'package:movie_app/src/models/hotel_model.dart';
 
-class MovieDetail extends StatelessWidget {
-  MovieDetail({this.model});
-  MovieModel model;
+class HotelDetail extends StatelessWidget {
+  HotelDetail({this.model});
+  
+  HotelModel model;
 
   @override
   Widget build(BuildContext context) {

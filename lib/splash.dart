@@ -41,12 +41,12 @@ class _SplashScreenState extends State<SplashScreen> {
                     children: [
                       CircleAvatar(
                         backgroundColor:Colors.white,
-                        radius: 100.0,
-                        child: Lottie.asset('assets/loading.json')
+                        radius: 120.0,
+                        child: Lottie.asset('assets/hotel.json')
                         
                       ),
                       Padding(padding: EdgeInsets.only(top:10.0),),
-                      Text("Movie Application" , style: TextStyle(color: Colors.white , fontSize: 24.0 , fontWeight: FontWeight.bold),)
+                      Text("Hotel Nation " , style: TextStyle(color: Colors.white , fontSize: 24.0 , fontWeight: FontWeight.bold),)
 
                   ],),
                 )

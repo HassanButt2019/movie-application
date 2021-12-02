@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/src/models/movie_model.dart';
-import 'package:movie_app/src/screens/movie_details.dart';
+import 'package:movie_app/src/models/hotel_model.dart';
+import 'package:movie_app/src/screens/hotel_details.dart';
 
-class MovieOverview extends StatelessWidget {
 
-  MovieOverview({this.model});
-  MovieModel model ;
+class HotelOverview extends StatelessWidget {
+
+  HotelOverview({this.model});
+  HotelModel model ;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class MovieOverview extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
           onTap: (){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetail(model:model)));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HotelDetail(model:model)));
 
           },
         child: Card(
@@ -34,7 +35,7 @@ class MovieOverview extends StatelessWidget {
                 SizedBox(width: 10.0),
                 Container(
                   child: new Column(children: [
-                    Text(model.title??"Movie Title"),
+                    Text(model.title??"Hotel Title"),
                   ]),
                 )
               ],
